@@ -25,7 +25,7 @@ getgenv().SeparateNotify = function(title, text, icon, time)
     SGui:SetCore("SendNotification",{
         Title = title;
         Text = text;
-        Icon = "";
+        Icon = "http://www.roblox.com/asset/?id=7147438333";
         Duration = time;
     })
 end
@@ -36,7 +36,7 @@ getgenv().Notify = function(title, text, icon, time)
         SGui:SetCore("SendNotification",{
             Title = title;
             Text = text;
-            Icon = "";
+            Icon = "http://www.roblox.com/asset/?id=7147438333";
             Duration = time;
         }) 
     end
@@ -164,7 +164,7 @@ Uis.InputBegan:Connect(function(Key)
                 local Target;Target = GetNearestTarget()
                 if Target ~= nil then 
                     AimlockTarget = Target
-                    Notify("Deszk Gui", "Aimlock Target in: "..tostring(AimlockTarget), "", 3)
+                    Notify("Deszk Gui", "Aimlock Target: "..tostring(AimlockTarget), "", 3)
                 end
             end)
         end
@@ -186,13 +186,13 @@ Uis.InputEnded:Connect(function(Key)
 end)
 
 RService.RenderStepped:Connect(function()
-    if getgenv().FirstPerson == true and getgenv().ThirdPerson == true then 
+    if getgenv().FirstPerson == true and getgenv().ThirdPerson == false then 
         if (Camera.Focus.p - Camera.CoordinateFrame.p).Magnitude <= 1 then 
             CanNotify = true 
         else 
             CanNotify = false 
         end
-    elseif getgenv().ThirdPerson == true and getgenv().FirstPerson == true then 
+    elseif getgenv().ThirdPerson == true and getgenv().FirstPerson == false then 
         if (Camera.Focus.p - Camera.CoordinateFrame.p).Magnitude > 1 then 
             CanNotify = true 
         else 
